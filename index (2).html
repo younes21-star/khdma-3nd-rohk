@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أخدم عند روحك — منصة العمل عن بعد للخدمات الرقمية في الجزائر</title>
+<meta name="description" content="منصة جزائرية للعمل عن بعد: خدمات رقمية، عمال أحرار، طلبات، دفع بالبطاقة البنكية CIB والذهبية، محادثات، تقييمات وتسليم ملفات.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pri:#059669; --pri-2:#10b981; --dark:#0f172a; --ink:#1e293b; --muted:#64748b;
+    --bg:#f6f8fa; --card:#ffffff; --line:#e2e8f0; --soft:#ecfdf5;
+    --amber:#f59e0b; --red:#ef4444; --blue:#2563eb;
+    --grad:linear-gradient(135deg,#059669 0%,#10b981 100%);
+    --shadow:0 10px 30px rgba(15,23,42,.08); --radius:16px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Tajawal',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+  button,input,select,textarea{font-family:inherit}
+  button{cursor:pointer}
+  a{color:inherit;text-decoration:none}
+  .hidden{display:none!important}
+  .container{max-width:1140px;margin:0 auto;padding:0 18px}
+  .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .hwrap{display:flex;align-items:center;gap:16px;padding:12px 0}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.1rem;white-space:nowrap}
+  .logo .ic{width:42px;height:42px;border-radius:13px;background:var(--grad);display:grid;place-items:center;font-size:21px;box-shadow:0 8px 18px rgba(5,150,105,.3);color:#fff}
+  nav.links{margin-inline-start:auto;display:flex;gap:4px}
+  nav.links button{background:none;border:none;border-radius:11px;padding:9px 14px;font-weight:700;font-size:.9rem;color:var(--muted);transition:.2s}
+  nav.links button:hover,nav.links button.active{color:var(--pri);background:var(--soft)}
+  .h-auth{display:flex;align-items:center;gap:8px}
+  .burger{display:none;width:42px;height:42px;border-radius:12px;background:var(--bg);border:1px solid var(--line);flex-direction:column;align-items:center;justify-content:center;gap:4px}
+  .burger span{width:18px;height:2px;background:var(--ink);border-radius:2px}
+  #mobileNav{display:none;border-top:1px solid var(--line);background:#fff;padding:8px 18px 14px}
+  #mobileNav.open{display:block}
+  #mobileNav button{display:block;width:100%;text-align:right;background:none;border:none;padding:11px 6px;font-weight:700;color:var(--muted);border-bottom:1px solid var(--line);font-size:.95rem}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:13px;padding:12px 22px;font-weight:800;font-size:.92rem;transition:.22s}
+  .btn-pri{background:var(--grad);color:#fff;box-shadow:0 8px 20px rgba(5,150,105,.3)}
+  .btn-pri:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(5,150,105,.38)}
+  .btn-soft{background:var(--soft);color:var(--pri)}
+  .btn-soft:hover{background:#d1fae5}
+  .btn-dark{background:var(--dark);color:#fff}
+  .btn-out{background:#fff;border:1.5px solid var(--line);color:var(--ink)}
+  .btn-out:hover{border-color:var(--pri);color:var(--pri)}
+  .btn-red{background:#fef2f2;color:var(--red);border:1.5px solid #fecaca}
+  .btn-red:hover{background:var(--red);color:#fff}
+  .btn-sm{padding:8px 14px;font-size:.8rem;border-radius:10px}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important}
+
+  .user-chip{display:flex;align-items:center;gap:8px;background:var(--soft);border-radius:13px;padding:6px 10px;font-weight:800;font-size:.85rem;color:var(--pri)}
+  .user-chip .av{width:30px;height:30px;border-radius:9px;background:var(--grad);color:#fff;display:grid;place-items:center;font-size:.8rem}
+  .user-chip button{background:none;border:none;color:var(--red);font-weight:800;font-size:.8rem}
+  .bal-chip{background:#fffbeb;border:1px solid #fde68a;color:#b45309;border-radius:11px;padding:7px 12px;font-weight:800;font-size:.8rem;white-space:nowrap}
+
+  /* Hero */
+  .hero{background:radial-gradient(ellipse 60% 60% at 85% 10%,rgba(16,185,129,.14),transparent),radial-gradient(ellipse 50% 50% at 10% 90%,rgba(37,99,235,.08),transparent),var(--card);border-bottom:1px solid var(--line);padding:70px 0 80px}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+  .hero .kicker{display:inline-block;background:var(--soft);color:var(--pri);border-radius:99px;padding:6px 16px;font-weight:800;font-size:.8rem;margin-bottom:16px}
+  .hero h1{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:900;line-height:1.35;margin-bottom:14px}
+  .hero p.lead{color:var(--muted);font-size:1.02rem;max-width:540px;margin-bottom:26px}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:34px}
+  .hero-stats{display:flex;gap:30px;flex-wrap:wrap}
+  .hstat b{display:block;font-size:1.4rem;font-weight:900;color:var(--pri)}
+  .hstat small{color:var(--muted);font-size:.8rem;font-weight:700}
+  .hero-art{background:var(--dark);border-radius:24px;padding:26px;color:#e2e8f0;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .hero-art::before{content:'';position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(16,185,129,.22);top:-70px;left:-70px;filter:blur(10px)}
+  .ha-row{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:12px 14px;margin-bottom:10px;position:relative}
+  .ha-row .av{width:38px;height:38px;border-radius:11px;background:var(--grad);display:grid;place-items:center;font-size:17px;flex-shrink:0}
+  .ha-row b{font-size:.85rem;display:block}
+  .ha-row small{color:#94a3b8;font-size:.72rem}
+  .ha-row .pr{margin-inline-start:auto;color:#6ee7b7;font-weight:900;font-size:.85rem;white-space:nowrap}
+
+  /* Sections */
+  section{padding:60px 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 38px}
+  .sec-head .kicker{color:var(--pri);font-weight:900;font-size:.8rem;letter-spacing:.05em;margin-bottom:6px}
+  .sec-head h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:900;margin-bottom:8px}
+  .sec-head p{color:var(--muted);font-size:.95rem}
+
+  .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .cat-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 16px;text-align:center;transition:.25s}
+  .cat-card:hover{transform:translateY(-4px);border-color:var(--pri);box-shadow:var(--shadow)}
+  .cat-card .ic{font-size:30px;display:block;margin-bottom:8px}
+  .cat-card b{font-size:.9rem;display:block}
+  .cat-card small{color:var(--muted);font-size:.74rem}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;position:relative}
+  .step .num{width:40px;height:40px;border-radius:12px;background:var(--grad);color:#fff;display:grid;place-items:center;font-weight:900;margin-bottom:14px;box-shadow:0 6px 14px rgba(5,150,105,.3)}
+  .step b{display:block;margin-bottom:6px;font-size:1rem}
+  .step p{color:var(--muted);font-size:.87rem}
+
+  /* Cards grid (services) */
+  .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px;align-items:center}
+  .search-in{flex:1;min-width:220px;background:#fff;border:1.5px solid var(--line);border-radius:13px;padding:12px 16px;font-size:.92rem;outline:none;transition:.2s}
+  .search-in:focus{border-color:var(--pri);box-shadow:0 0 0 4px rgba(5,150,105,.12)}
+  .filter-pill{background:#fff;border:1.5px solid var(--line);border-radius:99px;padding:9px 16px;font-weight:700;font-size:.82rem;color:var(--muted);transition:.2s}
+  .filter-pill.active,.filter-pill:hover{border-color:var(--pri);color:var(--pri);background:var(--soft)}
+
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .svc-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:.25s;display:flex;flex-direction:column}
+  .svc-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(5,150,105,.4)}
+  .svc-top{background:linear-gradient(135deg,#064e3b,#0f172a);padding:22px 18px;color:#fff;display:flex;align-items:center;gap:12px}
+  .svc-top .av{width:46px;height:46px;border-radius:14px;background:var(--grad);display:grid;place-items:center;font-weight:900;font-size:1rem;flex-shrink:0}
+  .svc-top b{display:block;font-size:.92rem}
+  .svc-top small{color:#a7f3d0;font-size:.75rem}
+  .svc-body{padding:16px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .svc-body h3{font-size:1rem;font-weight:800}
+  .svc-body .desc{color:var(--muted);font-size:.83rem;flex:1}
+  .meta-row{display:flex;gap:12px;flex-wrap:wrap;font-size:.78rem;color:var(--muted);font-weight:700}
+  .svc-foot{border-top:1px solid var(--line);padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .price b{font-size:1.05rem;font-weight:900;color:var(--pri)}
+  .price small{color:var(--muted);font-size:.72rem;display:block}
+  .stars{color:var(--amber);letter-spacing:1px;font-size:.85rem}
+  .stars .off{color:#d1d5db}
+  .rate-num{color:var(--muted);font-size:.76rem;font-weight:700}
+
+  /* Status badges */
+  .badge{display:inline-block;border-radius:99px;padding:4px 12px;font-size:.72rem;font-weight:800}
+  .b-wait{background:#fffbeb;color:#b45309;border:1px solid #fde68a}
+  .b-active{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
+  .b-deliv{background:#f5f3ff;color:#6d28d9;border:1px solid #ddd6fe}
+  .b-done{background:var(--soft);color:#047857;border:1px solid #a7f3d0}
+  .b-rej{background:#fef2f2;color:#b91c1c;border:1px solid #fecaca}
+  .b-pend{background:#fff7ed;color:#c2410c;border:1px solid #fed7aa}
+
+  /* Orders list */
+  .order-row{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;margin-bottom:12px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;transition:.2s}
+  .order-row:hover{box-shadow:var(--shadow)}
+  .order-row .oic{width:44px;height:44px;border-radius:13px;background:var(--soft);display:grid;place-items:center;font-size:20px;flex-shrink:0}
+  .order-row .info{flex:1;min-width:180px}
+  .order-row .info b{display:block;font-size:.95rem}
+  .order-row .info small{color:var(--muted);font-size:.78rem}
+  .order-row .acts{display:flex;gap:8px;flex-wrap:wrap}
+
+  /* Order detail */
+  .detail-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:18px;align-items:start}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-bottom:16px}
+  .panel h3{font-size:1rem;font-weight:900;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .timeline{display:grid;gap:0}
+  .tl-step{display:flex;gap:12px;padding-bottom:18px;position:relative}
+  .tl-step::before{content:'';position:absolute;right:13px;top:30px;bottom:0;width:2px;background:var(--line)}
+  .tl-step:last-child::before{display:none}
+  .tl-dot{width:28px;height:28px;border-radius:50%;background:var(--bg);border:2px solid var(--line);display:grid;place-items:center;font-size:.7rem;flex-shrink:0;z-index:1}
+  .tl-step.done .tl-dot{background:var(--grad);border-color:var(--pri);color:#fff}
+  .tl-step b{font-size:.88rem;display:block}
+  .tl-step small{color:var(--muted);font-size:.76rem}
+
+  .file-chip{display:inline-flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--line);border-radius:11px;padding:8px 13px;font-size:.8rem;font-weight:700;margin:0 6px 6px 0}
+  .file-chip .ic{font-size:16px}
+  .media-prev img,.media-prev video{max-width:100%;border-radius:12px;margin-top:8px;border:1px solid var(--line)}
+  .media-prev audio{width:100%;margin-top:8px}
+
+  /* Chat */
+  .chat-box{border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .chat-msgs{max-height:340px;overflow-y:auto;padding:14px;background:#fafcfd;display:grid;gap:10px}
+  .msg{max-width:82%;border-radius:14px;padding:10px 14px;font-size:.87rem;position:relative}
+  .msg b{display:block;font-size:.7rem;opacity:.65;margin-bottom:2px}
+  .msg small.ts{display:block;font-size:.65rem;opacity:.55;margin-top:4px;text-align:left}
+  .msg.me{background:var(--grad);color:#fff;margin-inline-start:auto;border-bottom-left-radius:4px}
+  .msg.them{background:#fff;border:1px solid var(--line);margin-inline-end:auto;border-bottom-right-radius:4px}
+  .msg .att{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.18);border-radius:9px;padding:5px 10px;font-size:.75rem;margin-top:6px;font-weight:700}
+  .msg.them .att{background:var(--soft)}
+  .chat-input{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);background:#fff}
+  .chat-input input[type=text]{flex:1;background:var(--bg);border:1.5px solid var(--line);border-radius:11px;padding:11px 14px;font-size:.88rem;outline:none}
+  .chat-input input[type=text]:focus{border-color:var(--pri)}
+  .icon-btn{width:42px;height:42px;border-radius:11px;border:1.5px solid var(--line);background:#fff;font-size:17px;display:grid;place-items:center;flex-shrink:0;transition:.2s}
+  .icon-btn:hover{border-color:var(--pri);background:var(--soft)}
+
+  /* Forms & modal */
+  .overlay{position:fixed;inset:0;z-index:200;background:rgba(15,23,42,.6);backdrop-filter:blur(5px);display:grid;place-items:center;padding:18px}
+  .modal{background:var(--card);border-radius:20px;padding:28px;width:min(100%,480px);max-height:92vh;overflow-y:auto;position:relative;box-shadow:0 30px 80px rgba(2,6,23,.4);animation:mIn .28s ease}
+  .modal.wide{width:min(100%,640px)}
+  @keyframes mIn{from{opacity:0;transform:translateY(16px)}}
+  .modal h3{font-size:1.15rem;font-weight:900;margin-bottom:4px}
+  .modal .sub{color:var(--muted);font-size:.85rem;margin-bottom:16px}
+  .modal .x{position:absolute;top:14px;left:14px;width:32px;height:32px;border-radius:10px;background:var(--bg);border:1px solid var(--line);color:var(--muted);font-size:1rem}
+  .modal .x:hover{color:var(--red)}
+  .fld{margin-bottom:13px}
+  .fld label{display:block;font-size:.8rem;font-weight:800;color:var(--muted);margin-bottom:5px}
+  .fld input,.fld select,.fld textarea{width:100%;background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;font-size:.9rem;outline:none;transition:.2s;color:var(--ink)}
+  .fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--pri);box-shadow:0 0 0 4px rgba(5,150,105,.1);background:#fff}
+  .fld textarea{resize:vertical;min-height:80px}
+  .fld-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .role-pick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+  .role-btn{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:16px 10px;text-align:center;font-weight:800;font-size:.88rem;transition:.2s}
+  .role-btn .ic{display:block;font-size:26px;margin-bottom:6px}
+  .role-btn.sel{border-color:var(--pri);background:var(--soft);color:var(--pri)}
+  .note{background:#fffbeb;border:1px solid #fde68a;color:#92400e;border-radius:12px;padding:10px 14px;font-size:.78rem;font-weight:700;margin-bottom:14px}
+  .note.info{background:#eff6ff;border-color:#bfdbfe;color:#1e40af}
+  .note.err{background:#fef2f2;border-color:#fecaca;color:#b91c1c}
+  .file-drop{border:2px dashed var(--line);border-radius:13px;padding:14px;text-align:center;color:var(--muted);font-size:.82rem;font-weight:700;background:var(--bg)}
+  .file-drop input{display:none}
+  .file-drop.has{border-color:var(--pri);color:var(--pri);background:var(--soft)}
+
+  /* card pay */
+  .card-types{display:flex;gap:10px;margin-bottom:14px}
+  .card-type{flex:1;border:2px solid var(--line);border-radius:13px;padding:12px;text-align:center;font-weight:800;font-size:.82rem;background:var(--bg);transition:.2s}
+  .card-type.sel{border-color:var(--pri);background:var(--soft);color:var(--pri)}
+  .card-type .ic{display:block;font-size:22px}
+
+  /* Stars input */
+  .star-in{display:flex;gap:6px;justify-content:center;margin:10px 0 16px;direction:ltr}
+  .star-in button{background:none;border:none;font-size:2rem;color:#d1d5db;transition:.15s}
+  .star-in button.on{color:var(--amber);transform:scale(1.12)}
+
+  /* Accordion */
+  .acc{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
+  .acc button{width:100%;background:none;border:none;padding:16px 20px;font-weight:800;font-size:.95rem;text-align:right;display:flex;justify-content:space-between;align-items:center;color:var(--ink)}
+  .acc button:hover{color:var(--pri)}
+  .acc .body{padding:0 20px 16px;color:var(--muted);font-size:.88rem;display:none}
+  .acc.open .body{display:block}
+  .acc.open button{color:var(--pri)}
+
+  /* Admin */
+  .admin-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+  .stat-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;text-align:center}
+  .stat-card b{display:block;font-size:1.6rem;font-weight:900;color:var(--pri)}
+  .stat-card small{color:var(--muted);font-weight:700;font-size:.78rem}
+  table.adm{width:100%;border-collapse:collapse;background:var(--card);border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);font-size:.85rem}
+  table.adm th{background:var(--dark);color:#fff;padding:11px 12px;font-size:.78rem;text-align:right}
+  table.adm td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:middle}
+  .tbl-wrap{overflow-x:auto}
+
+  /* Wallet */
+  .wallet-hero{background:var(--dark);border-radius:22px;padding:30px;color:#fff;display:flex;gap:26px;align-items:center;flex-wrap:wrap;position:relative;overflow:hidden}
+  .wallet-hero::before{content:'';position:absolute;width:260px;height:260px;border-radius:50%;background:rgba(16,185,129,.18);top:-90px;left:-60px}
+  .wallet-hero .amt b{font-size:2.2rem;font-weight:900;color:#6ee7b7;display:block}
+  .wallet-hero .amt small{color:#94a3b8;font-size:.8rem}
+  .bank-card-vis{width:250px;height:150px;border-radius:18px;background:var(--grad);padding:18px;position:relative;box-shadow:0 16px 36px rgba(5,150,105,.4);margin-inline-start:auto}
+  .bank-card-vis .chip{width:36px;height:26px;border-radius:6px;background:#fde68a;margin-bottom:26px}
+  .bank-card-vis .no{font-family:monospace;letter-spacing:.14em;font-size:.9rem;direction:ltr;text-align:left}
+  .bank-card-vis .nm{font-size:.72rem;color:#d1fae5;margin-top:8px;font-weight:700}
+
+  /* Toast */
+  #toastBox{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:400;display:grid;gap:9px;width:min(92vw,400px)}
+  .toast{background:var(--dark);color:#fff;border-radius:13px;padding:13px 18px;font-size:.88rem;font-weight:700;box-shadow:0 14px 38px rgba(2,6,23,.4);animation:tIn .3s ease}
+  .toast.out{opacity:0;transform:translateY(12px);transition:.3s}
+  .toast.ok{border-right:4px solid var(--pri-2)}
+  .toast.err{border-right:4px solid var(--red)}
+  @keyframes tIn{from{opacity:0;transform:translateY(14px)}}
+
+  /* Empty */
+  .empty{background:var(--card);border:2px dashed var(--line);border-radius:20px;padding:46px 22px;text-align:center;color:var(--muted)}
+  .empty .ic{font-size:42px;display:block;margin-bottom:8px}
+  .empty b{display:block;color:var(--ink);margin-bottom:4px;font-size:1rem}
+  .empty small{font-size:.83rem}
+  .back-link{background:none;border:none;color:var(--pri);font-weight:800;font-size:.88rem;margin-bottom:14px;padding:0}
+  .back-link:hover{text-decoration:underline}
+  .page-title{font-size:1.35rem;font-weight:900;margin-bottom:4px}
+  .page-sub{color:var(--muted);font-size:.9rem;margin-bottom:22px}
+
+  /* Footer */
+  footer{background:var(--dark);color:#94a3b8;margin-top:60px;padding:44px 0 20px}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:34px;margin-bottom:30px}
+  footer h4{color:#fff;font-size:.92rem;margin-bottom:12px}
+  footer ul{list-style:none;display:grid;gap:8px;font-size:.85rem}
+  footer a:hover{color:#6ee7b7}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:16px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:.78rem}
+  .foot-bottom button{background:none;border:none;color:#6ee7b7;font-weight:700;font-size:.78rem}
+
+  @media (max-width:1024px){
+    nav.links{display:none}
+    .burger{display:flex}
+    .hero-grid{grid-template-columns:1fr}
+    .hero-art{display:none}
+    .cat-grid{grid-template-columns:repeat(3,1fr)}
+    .svc-grid{grid-template-columns:repeat(2,1fr)}
+    .detail-grid{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr}
+    .admin-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:640px){
+    .cat-grid{grid-template-columns:repeat(2,1fr)}
+    .svc-grid{grid-template-columns:1fr}
+    .fld-row{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr}
+    .h-auth .btn span.txt{display:none}
+    .bal-chip{display:none}
+    .bank-card-vis{margin:0 auto}
+    section{padding:44px 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container hwrap">
+    <a class="logo" href="#" onclick="go('home');return false"><span class="ic">💼</span> أخدم <span class="grad-text">عند روحك</span></a>
+    <nav class="links" id="navLinks">
+      <button data-v="home" onclick="go('home')">الرئيسية</button>
+      <button data-v="market" onclick="go('market')">الخدمات</button>
+      <button data-v="orders" onclick="go('orders')">الطلبات</button>
+      <button data-v="wallet" onclick="go('wallet')">المحفظة</button>
+      <button data-v="help" onclick="go('help')">المساعدة</button>
+    </nav>
+    <div class="h-auth" id="authArea"></div>
+    <button class="burger" id="burger" onclick="document.getElementById('mobileNav').classList.toggle('open')" aria-label="القائمة"><span></span><span></span><span></span></button>
+  </div>
+  <div id="mobileNav">
+    <button onclick="go('home')">🏠 الرئيسية</button>
+    <button onclick="go('market')">🛒 الخدمات</button>
+    <button onclick="go('orders')">📦 الطلبات</button>
+    <button onclick="go('wallet')">💳 المحفظة</button>
+    <button onclick="go('help')">❓ المساعدة</button>
+  </div>
+</header>
+
+<main id="view"></main>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="color:#fff;margin-bottom:10px"><span class="ic">💼</span> أخدم عند روحك</div>
+        <p style="font-size:.85rem;max-width:320px">منصة جزائرية تجمع أصحاب الخبرة في الخدمات الرقمية مع الزبائن — طلب، دفع آمن بالبطاقة البنكية (CIB / الذهبية)، تواصل مباشر، وتسليم ملفات بكل الصيغ.</p>
+      </div>
+      <div>
+        <h4>روابط سريعة</h4>
+        <ul>
+          <li><a href="#" onclick="go('market');return false">تصفح الخدمات</a></li>
+          <li><a href="#" onclick="go('help');return false">الأسئلة الشائعة</a></li>
+          <li><a href="#" onclick="openSignup('freelancer');return false">سجّل كعامل حر</a></li>
+          <li><a href="#" onclick="go('wallet');return false">المحفظة والسحب</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>تواصل معنا</h4>
+        <ul>
+          <li>💬 واتساب: <span dir="ltr">0797 46 41 79</span></li>
+          <li>✉️ support@akhdem-dz.com</li>
+          <li>🇩🇿 الجزائر — عن بُعد 100%</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 أخدم عند روحك — جميع الحقوق محفوظة</span>
+      <button onclick="openAdminLogin()">🔐 لوحة الإدارة</button>
+    </div>
+  </div>
+</footer>
+
+<div id="modalRoot"></div>
+<div id="toastBox" aria-live="polite"></div>
+
+<script>
+'use strict';
+/* ============ CONSTANTS & STORAGE ============ */
+const ADMIN_PASSWORD = 'admin123';
+const COMMISSION = 0.10; // عمولة المنصة 10%
+const CATS = {
+  design:{n:'تصميم جرافيك',ic:'🎨'}, dev:{n:'برمجة وتطوير',ic:'💻'}, web:{n:'تصميم مواقع',ic:'🌐'},
+  marketing:{n:'تسويق رقمي',ic:'📣'}, video:{n:'مونتاج فيديو',ic:'🎬'}, writing:{n:'كتابة محتوى',ic:'✍️'},
+  translate:{n:'ترجمة',ic:'🌍'}, voice:{n:'صوت وتعليق',ic:'🎙️'}, other:{n:'أخرى',ic:'⚙️'}
+};
+const DB = {
+  get(k,d){ try{ return JSON.parse(localStorage.getItem('ak_'+k)) ?? d; }catch(e){ return d; } },
+  set(k,v){ try{ localStorage.setItem('ak_'+k, JSON.stringify(v)); return true; }catch(e){ toast('❌ الذاكرة ممتلئة — الملف كبير جدًا','err'); return false; } },
+  del(k){ localStorage.removeItem('ak_'+k); }
+};
+let users = DB.get('users',null);
+let services = DB.get('services',null);
+let orders = DB.get('orders',null);
+let pays = DB.get('pays',null);
+let session = DB.get('sess',null);
+let isAdmin = DB.get('admin',false);
+
+function saveUsers(){ DB.set('users',users); }
+function saveServices(){ DB.set('services',services); }
+function saveOrders(){ DB.set('orders',orders); }
+function savePays(){ DB.set('pays',pays); }
+function saveSess(){ DB.set('sess',session); }
+function me(){ return session ? users.find(u=>u.id===session) || null : null; }
+function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,7); }
+function esc(s){ return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function fmtDA(n){ return Number(n||0).toLocaleString('en-US')+' DA'; }
+function fmtDate(ts){ const d=new Date(ts); return d.toLocaleDateString('fr-DZ')+' '+d.toLocaleTimeString('fr-DZ',{hour:'2-digit',minute:'2-digit'}); }
+function starsHtml(avg,cnt){ const a=Math.round(avg||0); let s=''; for(let i=1;i<=5;i++) s+= i<=a?'★':'<span class="off">★</span>'; return `<span class="stars">${s}</span>${cnt!==undefined?`<span class="rate-num"> ${(+avg).toFixed(1)} (${cnt})</span>`:''}`; }
+function initials(n){ return (n||'?').trim().split(/\s+/).slice(0,2).map(w=>w[0]).join(''); }
+function toast(msg,type){ const b=document.getElementById('toastBox'); const t=document.createElement('div'); t.className='toast '+(type||'ok'); t.textContent=msg; b.appendChild(t); setTimeout(()=>{t.classList.add('out');setTimeout(()=>t.remove(),320);},2800); }
+
+/* ============ SEED ============ */
+function seed(){
+  const F=(name,email,field,exp,rating,port)=>({id:uid(),name,email,pass:'123456',phone:'0550000000',role:'freelancer',status:'approved',field,experience:exp,portfolio:port,rating,balance:0,createdAt:Date.now()});
+  users=[
+    F('أمين بن عمار','amine@demo.dz','design',5,[5,5,4,5],'شعارات وهوية بصرية لأكثر من 120 علامة جزائرية'),
+    F('سارة قادري','sara@demo.dz','video',4,[5,4,5],'مونتاج إعلانات وفيديوهات يوتيوب'),
+    F('يوسف مرابط','youcef@demo.dz','dev',6,[5,5,5],'مواقع ومتاجر إلكترونية React/Node'),
+    F('ليندة شريف','linda@demo.dz','marketing',3,[4,5,4],'إدارة حملات فيسبوك وإنستغرام'),
+    {id:uid(),name:'كريم حداد',email:'karim@demo.dz',pass:'123456',phone:'0661112233',role:'freelancer',status:'pending',field:'writing',experience:2,portfolio:'كاتب محتوى ومقالات SEO',rating:[],balance:0,createdAt:Date.now(),rejectReason:''},
+    {id:uid(),name:'زبون تجريبي',email:'client@demo.dz',pass:'123456',phone:'0770001122',role:'client',status:'approved',field:'',experience:0,portfolio:'',rating:[],balance:0,createdAt:Date.now()}
+  ];
+  const f0=users[0].id,f1=users[1].id,f2=users[2].id,f3=users[3].id;
+  services=[
+    {id:uid(),fid:f0,title:'تصميم شعار احترافي + هوية بصرية',cat:'design',desc:'شعار بثلاث مقترحات مع الملفات المصدرية AI/PNG/SVG ودليل ألوان.',price:9000,days:3,createdAt:Date.now()},
+    {id:uid(),fid:f0,title:'تصميم منشورات سوشيال ميديا (5 تصاميم)',cat:'design',desc:'تصاميم عصرية لحساباتك بمقاسات فيسبوك وإنستغرام قابلة للتعديل.',price:3500,days:2,createdAt:Date.now()},
+    {id:uid(),fid:f1,title:'مونتاج فيديو إعلاني احترافي',cat:'video',desc:'مونتاج إعلان لمنتجك حتى 60 ثانية مع مؤثرات وموسيقى وترجمة نصية.',price:6500,days:3,createdAt:Date.now()},
+    {id:uid(),fid:f1,title:'مونتاج فيديو يوتيوب كامل',cat:'video',desc:'قص، ترتيب، إضافة انتقالات ومؤثرات صوتية لفيديو حتى 15 دقيقة.',price:12000,days:5,createdAt:Date.now()},
+    {id:uid(),fid:f2,title:'إنشاء موقع ويب متكامل',cat:'web',desc:'موقع احترافي متجاوب (واجهة + لوحة تحكم) مستضاف وجاهز للإطلاق.',price:55000,days:14,createdAt:Date.now()},
+    {id:uid(),fid:f2,title:'إصلاح الأخطاء البرمجية (Bug Fixing)',cat:'dev',desc:'تشخيص وإصلاح أخطاء موقعك أو تطبيقك مع تحسين الأداء.',price:4000,days:2,createdAt:Date.now()},
+    {id:uid(),fid:f3,title:'إدارة حملة إعلانية مدفوعة',cat:'marketing',desc:'إنشاء وإدارة حملة فيسبوك/إنستغرام لمدة أسبوع مع تقرير نتائج.',price:15000,days:7,createdAt:Date.now()},
+    {id:uid(),fid:f3,title:'خطة تسويق رقمي شاملة',cat:'marketing',desc:'خطة محتوى وتسويق لشهر كامل مخصصة لنشاطك التجاري.',price:8000,days:4,createdAt:Date.now()}
+  ];
+  orders=[]; pays=[];
+  saveUsers(); saveServices(); saveOrders(); savePays();
+}
+if(!users){ seed(); }
+
+/* ============ ROUTER ============ */
+const state={view:'home',svcFilter:'',svcSearch:'',orderId:null};
+function go(v,params){ Object.assign(state,params||{},{view:v}); document.getElementById('mobileNav').classList.remove('open'); render(); window.scrollTo({top:0}); }
+function render(){
+  document.querySelectorAll('#navLinks button').forEach(b=>b.classList.toggle('active',b.dataset.v===state.view));
+  renderAuth();
+  const v=document.getElementById('view');
+  switch(state.view){
+    case 'home': v.innerHTML=viewHome(); break;
+    case 'market': v.innerHTML=viewMarket(); break;
+    case 'orders': v.innerHTML=viewOrders(); break;
+    case 'order': v.innerHTML=viewOrderDetail(); break;
+    case 'wallet': v.innerHTML=viewWallet(); break;
+    case 'help': v.innerHTML=viewHelp(); break;
+    case 'admin': v.innerHTML=isAdmin?viewAdmin():viewHome(); break;
+    default: v.innerHTML=viewHome();
+  }
+}
+function renderAuth(){
+  const a=document.getElementById('authArea'); const u=me();
+  if(!u){ a.innerHTML=`<button class="btn btn-soft btn-sm" onclick="openLogin()">دخول</button><button class="btn btn-pri btn-sm" onclick="openSignup()"><span class="txt">حساب جديد</span>🚀</button>`; return; }
+  const fl=u.role==='freelancer';
+  a.innerHTML=`${fl&&u.status==='approved'?`<span class="bal-chip">💰 ${fmtDA(u.balance)}</span>`:''}
+  <div class="user-chip"><span class="av">${esc(initials(u.name))}</span> ${esc(u.name.split(' ')[0])} <button onclick="logout()" title="خروج">✕</button></div>`;
+}
+function logout(){ session=null; saveSess(); isAdmin=false; DB.set('admin',false); toast('👋 تم تسجيل الخروج'); go('home'); }
+
+/* ============ HOME ============ */
+function viewHome(){
+  const approved=users.filter(u=>u.role==='freelancer'&&u.status==='approved').length;
+  return `
+  <div class="hero"><div class="container hero-grid">
+    <div>
+      <span class="kicker">🇩🇿 منصة جزائرية 100% — خدمات رقمية فقط</span>
+      <h1>خدم <span class="grad-text">عند روحك</span>… وبيع مهارتك الرقمية من دارك</h1>
+      <p class="lead">سجّل كعامل حر إذا كنت تملك خبرة في مجال رقمي، اعرض خدماتك، استقبل الطلبات، تواصل مع الزبون، سلّم ملفات العمل (صور، فيديو، صوت، مستندات) واستلم أرباحك على بطاقتك البنكية CIB أو الذهبية.</p>
+      <div class="hero-cta">
+        <button class="btn btn-pri" onclick="openSignup('freelancer')">💼 سجّل كعامل حر</button>
+        <button class="btn btn-out" onclick="openSignup('client')">🛒 أنا زبون</button>
+        <button class="btn btn-soft" onclick="go('market')">تصفح الخدمات ←</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><b>${approved}+</b><small>عامل حر معتمد</small></div>
+        <div class="hstat"><b>${services.length}</b><small>خدمة معروضة</small></div>
+        <div class="hstat"><b>${orders.length}</b><small>طلبية</small></div>
+        <div class="hstat"><b>CIB 💳</b><small>دفع وسحب محلي</small></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div style="font-weight:900;margin-bottom:12px;font-size:.9rem">🔥 خدمات مطلوبة الآن</div>
+      ${services.slice(0,4).map(s=>{const f=users.find(u=>u.id===s.fid);return `<div class="ha-row"><span class="av">${CATS[s.cat]?CATS[s.cat].ic:'⚙️'}</span><div><b>${esc(s.title)}</b><small>${esc(f?f.name:'')}${f&&f.rating.length?' · ★'+(f.rating.reduce((a,b)=>a+b,0)/f.rating.length).toFixed(1):''}</small></div><span class="pr">${fmtDA(s.price)}</span></div>`}).join('')}
+    </div>
+  </div></div>
+
+  <section><div class="container">
+    <div class="sec-head"><div class="kicker">التصنيفات</div><h2>جميع الخدمات الرقمية في مكان واحد</h2><p>المنصة مخصصة حصريًا للخدمات الرقمية — يشترط إثبات خبرة في المجال عند التسجيل</p></div>
+    <div class="cat-grid">${Object.entries(CATS).map(([k,c])=>`<button class="cat-card" onclick="state.svcFilter='${k}';go('market')"><span class="ic">${c.ic}</span><b>${c.n}</b><small>${services.filter(s=>s.cat===k).length} خدمة</small></button>`).join('')}</div>
+  </div></section>
+
+  <section style="background:var(--card);border-block:1px solid var(--line)"><div class="container">
+    <div class="sec-head"><div class="kicker">كيف تعمل المنصة</div><h2>من الطلب إلى التسليم في 4 خطوات</h2></div>
+    <div class="steps" style="grid-template-columns:repeat(4,1fr)">
+      <div class="step"><div class="num">1</div><b>🔍 اختر الخدمة</b><p>تصفح الخدمات وقيّمات العمال الأحرار المعتمدين واختر ما يناسبك.</p></div>
+      <div class="step"><div class="num">2</div><b>💳 ادفع بأمان</b><p>ادفع ببطاقتك البنكية الجزائرية CIB أو الذهبية — المبلغ محفوظ حتى التسليم.</p></div>
+      <div class="step"><div class="num">3</div><b>💬 تواصل وتابع</b><p>محادثة مباشرة مع البائع داخل الطلبية + متابعة مراحل الإنجاز.</p></div>
+      <div class="step"><div class="num">4</div><b>📦 استلم وقيّم</b><p>تسليم الملفات (صورة، فيديو، صوت، نص، ملف) ثم التقييم بالنجوم.</p></div>
+    </div>
+  </div></section>
+
+  <section><div class="container">
+    <div class="sec-head"><div class="kicker">للعمال الأحرار</div><h2>عندك خبرة رقمية؟ خدم عند روحك 💪</h2><p>سجّل، املأ خبرتك ومعرض أعمالك، وانتظر اعتماد الإدارة — ثم ابدأ ببيع خدماتك</p></div>
+    <div style="text-align:center"><button class="btn btn-pri" style="padding:15px 34px;font-size:1rem" onclick="openSignup('freelancer')">🚀 قدّم طلب التسجيل الآن</button></div>
+  </div></section>`;
+}
+
+/* ============ AUTH MODALS ============ */
+function closeModal(){ document.getElementById('modalRoot').innerHTML=''; }
+function openModal(html){ document.getElementById('modalRoot').innerHTML=`<div class="overlay" onclick="if(event.target===this)closeModal()"><div class="modal">${html}</div></div>`; }
+function openLogin(){
+  openModal(`<button class="x" onclick="closeModal()">✕</button><h3>🔑 تسجيل الدخول</h3><p class="sub">أدخل بريدك وكلمة المرور</p>
+  <div class="note info">حسابات تجريبية — زبون: client@demo.dz / 123456 · عامل حر: amine@demo.dz / 123456</div>
+  <form onsubmit="doLogin(event)">
+    <div class="fld"><label>البريد الإلكتروني</label><input type="email" id="liEmail" required placeholder="you@example.com" dir="ltr"></div>
+    <div class="fld"><label>كلمة المرور</label><input type="password" id="liPass" required placeholder="••••••" dir="ltr"></div>
+    <button class="btn btn-pri" style="width:100%" type="submit">دخول</button>
+  </form>
+  <p style="text-align:center;margin-top:14px;font-size:.85rem;color:var(--muted)">ما عندكش حساب؟ <a href="#" style="color:var(--pri);font-weight:800" onclick="openSignup();return false">سجّل الآن</a></p>`);
+}
+function doLogin(e){
+  e.preventDefault();
+  const em=document.getElementById('liEmail').value.trim().toLowerCase(), pw=document.getElementById('liPass').value;
+  const u=users.find(x=>x.email.toLowerCase()===em&&x.pass===pw);
+  if(!u){ toast('❌ البريد أو كلمة المرور غير صحيحة','err'); return; }
+  session=u.id; saveSess(); closeModal();
+  if(u.role==='freelancer'&&u.status==='pending') toast('⏳ حسابك قيد المراجعة من الإدارة');
+  else if(u.role==='freelancer'&&u.status==='rejected') toast('❌ تم رفض طلبك: '+(u.rejectReason||''),'err');
+  else toast('✅ مرحبًا '+u.name+'!');
+  render();
+}
+let suRole='client';
+function openSignup(role){
+  suRole=role||'client';
+  openModal(`<button class="x" onclick="closeModal()">✕</button><h3>🚀 إنشاء حساب</h3><p class="sub">اختر نوع حسابك — المنصة مخصصة للخدمات الرقمية فقط</p>
+  <div class="role-pick">
+    <button type="button" class="role-btn ${suRole==='client'?'sel':''}" onclick="suRole='client';toggleSuForm()"><span class="ic">🛒</span>زبون<span style="display:block;font-size:.7rem;font-weight:600;color:var(--muted)">أريد شراء خدمة</span></button>
+    <button type="button" class="role-btn ${suRole==='freelancer'?'sel':''}" onclick="suRole='freelancer';toggleSuForm()"><span class="ic">💼</span>عامل حر<span style="display:block;font-size:.7rem;font-weight:600;color:var(--muted)">أريد بيع خدمتي</span></button>
+  </div>
+  <form onsubmit="doSignup(event)">
+    <div class="fld"><label>الاسم الكامل *</label><input id="suName" required placeholder="مثال: محمد أمين"></div>
+    <div class="fld-row">
+      <div class="fld"><label>البريد الإلكتروني *</label><input type="email" id="suEmail" required placeholder="you@example.com" dir="ltr"></div>
+      <div class="fld"><label>الهاتف *</label><input id="suPhone" required pattern="^0[567][0-9]{8}$" placeholder="0550123456" dir="ltr" maxlength="10"></div>
+    </div>
+    <div class="fld"><label>كلمة المرور *</label><input type="password" id="suPass" required minlength="4" placeholder="4 أحرف على الأقل" dir="ltr"></div>
+    <div id="suFree" class="${suRole==='freelancer'?'':'hidden'}">
+      <div class="note">⚠️ يشترط إثبات خبرة في مجال رقمي — الطلب يمر على الإدارة للمراجعة (قبول / رفض)</div>
+      <div class="fld-row">
+        <div class="fld"><label>مجال الخبرة الرقمي *</label><select id="suField" required>${Object.entries(CATS).map(([k,c])=>`<option value="${k}">${c.ic} ${c.n}</option>`).join('')}</select></div>
+        <div class="fld"><label>سنوات الخبرة *</label><input type="number" id="suExp" required min="0" max="60" placeholder="مثال: 3"></div>
+      </div>
+      <div class="fld"><label>معرض الأعمال / خبراتك *</label><textarea id="suPort" required placeholder="اشرح خبرتك وأبرز أعمالك السابقة (روابط، مشاريع، مهارات)…"></textarea></div>
+    </div>
+    <button class="btn btn-pri" style="width:100%" type="submit">إنشاء الحساب</button>
+  </form>`);
+}
+function toggleSuForm(){ document.getElementById('suFree').classList.toggle('hidden',suRole!=='freelancer'); document.querySelectorAll('.role-btn').forEach((b,i)=>b.classList.toggle('sel',(i===0&&suRole==='client')||(i===1&&suRole==='freelancer'))); }
+function doSignup(e){
+  e.preventDefault();
+  const email=document.getElementById('suEmail').value.trim().toLowerCase();
+  if(users.some(u=>u.email.toLowerCase()===email)){ toast('❌ هذا البريد مستعمل بالفعل','err'); return; }
+  const u={ id:uid(), name:document.getElementById('suName').value.trim(), email,
+    phone:document.getElementById('suPhone').value.trim(), pass:document.getElementById('suPass').value,
+    role:suRole, status: suRole==='freelancer'?'pending':'approved',
+    field:suRole==='freelancer'?document.getElementById('suField').value:'',
+    experience:suRole==='freelancer'?+document.getElementById('suExp').value:0,
+    portfolio:suRole==='freelancer'?document.getElementById('suPort').value.trim():'',
+    rating:[], balance:0, rejectReason:'', createdAt:Date.now() };
+  users.push(u); saveUsers(); session=u.id; saveSess(); closeModal();
+  if(suRole==='freelancer') toast('⏳ تم إرسال طلبك — في انتظار قبول الإدارة');
+  else toast('🎉 مرحبًا بك '+u.name+'!');
+  render();
+}
+
+/* ============ MARKET ============ */
+function viewMarket(){
+  const u=me();
+  const canAdd=u&&u.role==='freelancer'&&u.status==='approved';
+  let list=services.map(s=>({s,f:users.find(x=>x.id===s.fid)})).filter(x=>x.f&&x.f.status==='approved');
+  if(state.svcFilter) list=list.filter(x=>x.s.cat===state.svcFilter);
+  if(state.svcSearch){ const q=state.svcSearch.toLowerCase(); list=list.filter(x=>(x.s.title+x.s.desc+x.f.name+(CATS[x.s.cat]?CATS[x.s.cat].n:'')).toLowerCase().includes(q)); }
+  return `<section style="padding-top:30px"><div class="container">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap">
+      <div><h1 class="page-title">🛒 سوق الخدمات الرقمية</h1><p class="page-sub" style="margin-bottom:0">${list.length} خدمة من عمال أحرار معتمدين</p></div>
+      ${canAdd?`<button class="btn btn-pri" onclick="openAddService()">+ أضف خدمة</button>`:''}
+    </div>
+    ${u&&u.role==='freelancer'&&u.status==='pending'?`<div class="note" style="margin-top:14px">⏳ طلبك قيد المراجعة — بعد قبول الإدارة ستتمكن من إضافة خدماتك واستقبال الطلبات.</div>`:''}
+    ${u&&u.role==='freelancer'&&u.status==='rejected'?`<div class="note err" style="margin-top:14px">❌ تم رفض طلب التسجيل: ${esc(u.rejectReason||'لم يتم تقديم سبب')}</div>`:''}
+    <div class="toolbar" style="margin-top:18px">
+      <input class="search-in" placeholder="🔍 ابحث عن خدمة أو مهارة…" value="${esc(state.svcSearch)}" oninput="state.svcSearch=this.value;refreshMarket()">
+      <button class="filter-pill ${!state.svcFilter?'active':''}" onclick="state.svcFilter='';refreshMarket()">الكل</button>
+      ${Object.entries(CATS).map(([k,c])=>`<button class="filter-pill ${state.svcFilter===k?'active':''}" onclick="state.svcFilter='${k}';refreshMarket()">${c.ic} ${c.n}</button>`).join('')}
+    </div>
+    <div id="svcResults">${marketCards(list)}</div>
+  </div></section>`;
+}
+function marketCards(list){
+  if(!list.length) return `<div class="empty"><span class="ic">🔍</span><b>لا توجد خدمات مطابقة</b><small>جرّب بحثًا آخر أو تصنيفًا مختلفًا</small></div>`;
+  return `<div class="svc-grid">${list.map(({s,f})=>{
+    const avg=f.rating.length?f.rating.reduce((a,b)=>a+b,0)/f.rating.length:0;
+    return `<div class="svc-card">
+      <div class="svc-top"><span class="av">${esc(initials(f.name))}</span><div><b>${esc(f.name)}</b><small>${CATS[s.cat]?CATS[s.cat].ic+' '+CATS[s.cat].n:''} · خبرة ${f.experience} سنة</small></div></div>
+      <div class="svc-body">
+        <h3>${esc(s.title)}</h3><p class="desc">${esc(s.desc)}</p>
+        <div class="meta-row">${starsHtml(avg,f.rating.length)}<span>⏱️ تسليم في ${s.days} يوم</span></div>
+      </div>
+      <div class="svc-foot">
+        <div class="price"><small>ابتداءً من</small><b>${fmtDA(s.price)}</b></div>
+        <div style="display:flex;gap:6px">
+          <button class="btn btn-soft btn-sm" onclick="openContact('${f.id}')">💬 تواصل</button>
+          <button class="btn btn-pri btn-sm" onclick="openOrder('${s.id}')">اطلب الآن</button>
+        </div>
+      </div></div>`;
+  }).join('')}</div>`;
+}
+function refreshMarket(){ const list0=viewMarketList(); document.getElementById('svcResults').innerHTML=marketCards(list0); document.querySelectorAll('.filter-pill').forEach((b,i)=>{ const key=i===0?'':Object.keys(CATS)[i-1]; b.classList.toggle('active',state.svcFilter===key); }); }
+function viewMarketList(){
+  let list=services.map(s=>({s,f:users.find(x=>x.id===s.fid)})).filter(x=>x.f&&x.f.status==='approved');
+  if(state.svcFilter) list=list.filter(x=>x.s.cat===state.svcFilter);
+  if(state.svcSearch){ const q=state.svcSearch.toLowerCase(); list=list.filter(x=>(x.s.title+x.s.desc+x.f.name+(CATS[x.s.cat]?CATS[x.s.cat].n:'')).toLowerCase().includes(q)); }
+  return list;
+}
+
+/* ============ ADD SERVICE (freelancer) ============ */
+function openAddService(){
+  openModal(`<button class="x" onclick="closeModal()">✕</button><h3>➕ إضافة خدمة جديدة</h3><p class="sub">ستظهر مباشرة في السوق بعد الإضافة</p>
+  <form onsubmit="doAddService(event)">
+    <div class="fld"><label>عنوان الخدمة *</label><input id="asTitle" required placeholder="مثال: تصميم شعار احترافي"></div>
+    <div class="fld-row">
+      <div class="fld"><label>التصنيف *</label><select id="asCat">${Object.entries(CATS).map(([k,c])=>`<option value="${k}">${c.ic} ${c.n}</option>`).join('')}</select></div>
+      <div class="fld"><label>مدة التسليم (أيام) *</label><input type="number" id="asDays" required min="1" max="90" value="3"></div>
+    </div>
+    <div class="fld"><label>السعر (DA) *</label><input type="number" id="asPrice" required min="100" placeholder="مثال: 5000"></div>
+    <div class="fld"><label>وصف الخدمة *</label><textarea id="asDesc" required placeholder="اشرح ما تقدمه بالتفصيل: التسليمات، الصيغ، عدد التعديلات…"></textarea></div>
+    <button class="btn btn-pri" style="width:100%" type="submit">نشر الخدمة</button>
+  </form>`);
+}
+function doAddService(e){
+  e.preventDefault();
+  const u=me(); if(!u||u.role!=='freelancer'||u.status!=='approved'){ toast('❌ غير مسموح','err'); return; }
+  services.push({id:uid(),fid:u.id,title:document.getElementById('asTitle').value.trim(),cat:document.getElementById('asCat').value,
+    desc:document.getElementById('asDesc').value.trim(),price:+document.getElementById('asPrice').value,days:+document.getElementById('asDays').value,createdAt:Date.now()});
+  saveServices(); closeModal(); toast('✅ تم نشر خدمتك في السوق'); go('market');
+}
+
+/* ============ ORDER + PAYMENT ============ */
+let pendingOrder=null;
+function openOrder(svcId){
+  const u=me();
+  if(!u){ toast('🔑 سجّل دخولك أولًا كزبون','err'); openLogin(); return; }
+  if(u.role!=='client'){ toast('❌ حساب العامل الحر لا يمكنه الطلب — أنشئ حساب زبون','err'); return; }
+  const s=services.find(x=>x.id===svcId); const f=users.find(x=>x.id===s.fid);
+  pendingOrder={svcId};
+  openModal(`<button class="x" onclick="closeModal()">✕</button><h3>🛒 طلب خدمة</h3><p class="sub">${esc(s.title)} — ${esc(f.name)}</p>
+  <form onsubmit="gotoPay(event)">
+    <div class="fld"><label>تفاصيل طلبك *</label><textarea id="odDesc" required placeholder="اشرح بدقة ما تريده: المقاسات، المحتوى، الألوان، الروابط، الأمثلة…"></textarea></div>
+    <div class="fld-row">
+      <div class="fld"><label>الميزانية (DA) *</label><input type="number" id="odBudget" required min="${s.price}" value="${s.price}"></div>
+      <div class="fld"><label>المرفقات (اختياري)</label><div class="file-drop" id="odDrop" onclick="document.getElementById('odFile').click()">📎 اضغط لإرفاق صورة / ملف / صوت / فيديو<input type="file" id="odFile" hidden onchange="dropPick(this,'odDrop')"></div></div>
+    </div>
+    <div class="note info">💰 المبلغ الإجمالي: <b>${fmtDA(s.price)}</b> — عمولة المنصة 10% · الدفع ببطاقة CIB أو الذهبية (تجريبي)</div>
+    <button class="btn btn-pri" style="width:100%" type="submit">متابعة إلى الدفع 💳</button>
+  </form>`);
+}
+function dropPick(input,dropId){
+  const d=document.getElementById(dropId);
+  if(input.files&&input.files[0]){ const f=input.files[0]; if(f.size>3*1024*1024){ toast('❌ حجم الملف يتجاوز 3 ميغا','err'); input.value=''; return; } d.classList.add('has'); d.childNodes[0].textContent='📎 '+f.name+' ✓'; }
+}
+function gotoPay(e){
+  e.preventDefault();
+  const s=services.find(x=>x.id===pendingOrder.svcId);
+  const fileInput=document.getElementById('odFile');
+  const finish=att=>{
+    pendingOrder.desc=document.getElementById('odDesc').value.trim();
+    pendingOrder.budget=+document.getElementById('odBudget').value;
+    pendingOrder.attach=att; pendingOrder.price=s.price;
+    openPayModal(s);
+  };
+  if(fileInput&&fileInput.files[0]){ const r=new FileReader(); r.onload=ev=>finish({name:fileInput.files[0].name,type:fileInput.files[0].type,dataUrl:ev.target.result}); r.readAsDataURL(fileInput.files[0]); }
+  else finish(null);
+}
+let payType='cib';
+function openPayModal(s){
+  openModal(`<button class="x" onclick="closeModal()">✕</button><h3>💳 الدفع بالبطاقة البنكية الجزائرية</h3><p class="sub">مبلغ الطلبية: <b style="color:var(--pri)">${fmtDA(s.price)}</b></p>
+  <div class="note">⚠️ وضع تجريبي — لن يتم أي خصم حقيقي. في النسخة الحقيقية يتم الربط بشبكة SATIM/DZ-Mob.</div>
+  <div class="card-types">
+    <button type="button" class="card-type ${payType==='cib'?'sel':''}" onclick="payType='cib';openPayModalRefresh()"><span class="ic">💳</span>CIB</button>
+    <button type="button" class="card-type ${payType==='dahabia'?'sel':''}" onclick="payType='dahabia';openPayModalRefresh()"><span class="ic">🟨</span>الذهبية</button>
+  </div>
+  <form onsubmit="confirmPay(event)">
+    <div class="fld"><label>رقم البطاقة (16 رقمًا) *</label><input id="pyNum" required inputmode="numeric" pattern="[0-9 ]{16,19}" placeholder="6280 1234 5678 9012" dir="ltr" maxlength="19"></div>
+    <div class="fld-row">
+      <div class="fld"><label>تاريخ الانتهاء *</label><input id="pyExp" required placeholder="MM/AA" pattern="(0[1-9]|1[0-2])/[0-9]{2}" dir="ltr" maxlength="5"></div>
+      <div class="fld"><label>CVV *</label><input id="pyCvv" required inputmode="numeric" pattern="[0-9]{3}" placeholder="123" dir="ltr" maxlength="3"></div>
+    </div>
+    <button class="btn btn-pri" style="width:100%" type="submit">🔒 تأكيد الدفع (${fmtDA(s.price)})</button>
+  </form>`);
+}
+function openPayModalRefresh(){ const s=services.find(x=>x.id===pendingOrder.svcId); openPayModal(s); }
+function confirmPay(e){
+  e.preventDefault();
+  const u=me(), s=services.find(x=>x.id===pendingOrder.svcId);
+  const num=document.getElementById('pyNum').value.replace(/\s/g,'');
+  if(num.length!==16){ toast('❌ رقم البطاقة يجب أن يكون 16 رقمًا','err'); return; }
+  const att=pendingOrder.attach;
+  const order={ id:uid(), svcId:s.id, title:s.title, clientId:u.id, fid:s.fid,
+    desc:pendingOrder.desc, budget:pendingOrder.budget, price:s.price,
+    status:'paid_wait', payType, cardLast4:num.slice(-4), payTs:Date.now(),
+    messages:[{from:u.id,text:'مرحبًا! أرسلت تفاصيل الطلب، بانتظار عملك 💪',ts:Date.now(),att:att||null}],
+    delivery:null, rating:null, createdAt:Date.now() };
+  orders.push(order); saveOrders();
+  pays.push({id:uid(),type:'pay',userId:u.id,amount:s.price,orderId:order.id,card:num,payType,status:'done',ts:Date.now()}); savePays();
+  closeModal(); toast('✅ تم الدفع بنجاح وإنشاء الطلبية');
+  go('order',{orderId:order.id});
+}
+
+/* ============ CONTACT (pre-order chat) ============ */
+function openContact(fid){
+  const u=me();
+  if(!u){ toast('🔑 سجّل دخولك أولًا','err'); openLogin(); return; }
+  const f=users.find(x=>x.id===fid);
+  let o=orders.find(x=>((x.clientId===u.id&&x.fid===fid)||(x.clientId===fid&&x.fid===u.id)));
+  if(o){ go('order',{orderId:o.id}); return; }
+  openModal(`<button class="x" onclick="closeModal()">✕</button><h3>💬 تواصل مع ${esc(f.name)}</h3><p class="sub">سيتم فتح محادثة جديدة — تظهر في صفحة الطلبات</p>
+  <form onsubmit="createContact(event,'${fid}')">
+    <div class="fld"><label>رسالتك الأولى *</label><textarea id="ctMsg" required placeholder="سلام، عندي سؤال حول خدمتك…"></textarea></div>
+    <button class="btn btn-pri" style="width:100%" type="submit">إرسال وبدء المحادثة</button>
+  </form>`);
+}
+function createContact(e,fid){
+  e.preventDefault();
+  const u=me();
+  const isClient=u.role==='client';
+  const o={ id:uid(), svcId:null, title:'محادثة مباشرة', clientId:isClient?u.id:fid, fid:isClient?fid:u.id,
+    desc:'', budget:0, price:0, status:'chat', messages:[{from:u.id,text:document.getElementById('ctMsg').value.trim(),ts:Date.now(),att:null}],
+    delivery:null, rating:null, createdAt:Date.now() };
+  orders.push(o); saveOrders(); closeModal(); toast('✅ تم فتح المحادثة');
+  go('order',{orderId:o.id});
+}
+
+/* ============ ORDERS LIST ============ */
+const ST={chat:['💬 محادثة','b-active'],paid_wait:['⏳ بانتظار قبول العامل','b-wait'],active:['🔨 قيد التنفيذ','b-active'],delivered:['📦 تم التسليم','b-deliv'],done:['✅ مكتملة','b-done']};
+function viewOrders(){
+  const u=me();
+  if(!u) return `<section style="padding-top:40px"><div class="container"><div class="empty"><span class="ic">🔑</span><b>سجّل دخولك لعرض طلباتك</b><small>أو أنشئ حسابًا جديدًا مجانًا</small><br><br><button class="btn btn-pri" onclick="openLogin()">دخول</button></div></div></section>`;
+  const mine=orders.filter(o=>o.clientId===u.id||o.fid===u.id).sort((a,b)=>b.createdAt-a.createdAt);
+  return `<section style="padding-top:30px"><div class="container">
+    <h1 class="page-title">📦 الطلبات والمحادثات</h1>
+    <p class="page-sub">${u.role==='freelancer'?'طلبات الزبائن على خدماتك':'طلباتك ومحادثاتك مع العمال الأحرار'} — ${mine.length}</p>
+    ${!mine.length?`<div class="empty"><span class="ic">📭</span><b>لا توجد طلبات بعد</b><small>${u.role==='client'?'تصفح الخدمات واطلب أول خدمة 🛒':'أضف خدماتك من صفحة السوق لاستقبال الطلبات'}</small><br><br><button class="btn btn-pri" onclick="go('market')">تصفح الخدمات</button></div>`
+    :mine.map(o=>{
+      const other=users.find(x=>x.id===(o.clientId===u.id?o.fid:o.clientId));
+      const st=ST[o.status]||['—',''];
+      return `<div class="order-row"><span class="oic">${o.svcId?'🛒':'💬'}</span>
+        <div class="info"><b>${esc(o.title)}</b><small>${o.clientId===u.id?'مع العامل: ':'من الزبون: '}${esc(other?other.name:'—')} · ${fmtDate(o.createdAt)}${o.price?' · '+fmtDA(o.price):''}</small></div>
+        <span class="badge ${st[1]}">${st[0]}</span>
+        <div class="acts"><button class="btn btn-soft btn-sm" onclick="go('order',{orderId:'${o.id}'})">فتح ←</button></div></div>`;
+    }).join('')}
+  </div></section>`;
+}
+
+/* ============ ORDER DETAIL + CHAT ============ */
+function viewOrderDetail(){
+  const u=me(); const o=orders.find(x=>x.id===state.orderId);
+  if(!o||!u||(o.clientId!==u.id&&o.fid!==u.id&&!isAdmin)) return `<section style="padding-top:40px"><div class="container"><div class="empty"><span class="ic">🚫</span><b>الطلبية غير موجودة</b></div></div></section>`;
+  const isClient=o.clientId===u.id;
+  const f=users.find(x=>x.id===o.fid), c=users.find(x=>x.id===o.clientId);
+  const st=ST[o.status]||['—',''];
+  const steps=[['الدفع وإنشاء الطلب',o.payTs||o.createdAt,!!o.payTs||o.status==='chat'],['قبول العامل الحر',o.status==='paid_wait'?null:o.acceptTs,['active','delivered','done'].includes(o.status)],['التسليم',o.delivery?o.delivery.ts:null,!!o.delivery],['الإتمام والتقييم',o.rating?o.rating.ts:null,o.status==='done']];
+  return `<section style="padding-top:26px"><div class="container">
+    <button class="back-link" onclick="go('orders')">→ رجوع إلى الطلبات</button>
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px">
+      <h1 class="page-title" style="margin:0">${o.svcId?'🛒':'💬'} ${esc(o.title)}</h1><span class="badge ${st[1]}">${st[0]}</span>
+    </div>
+    <div class="detail-grid">
+      <div>
+        ${o.desc?`<div class="panel"><h3>📋 تفاصيل الطلب</h3><p style="font-size:.9rem;color:var(--muted)">${esc(o.desc)}</p>
+          ${o.budget?`<div class="meta-row" style="margin-top:8px"><span>💰 الميزانية: ${fmtDA(o.budget)}</span><span>🧾 المبلغ المدفوع: ${fmtDA(o.price)}</span><span>💳 ${o.payType==='dahabia'?'الذهبية':'CIB'} •••• ${o.cardLast4||''}</span></div>`:''}
+        </div>`:''}
+        <div class="panel"><h3>🧭 مراحل الطلبية</h3><div class="timeline">
+          ${steps.map(([label,ts,done])=>`<div class="tl-step ${done?'done':''}"><span class="tl-dot">${done?'✓':'○'}</span><div><b>${label}</b><small>${ts?fmtDate(ts):(done?'—':'في الانتظار')}</small></div></div>`).join('')}
+        </div></div>
+        <div class="panel"><h3>💬 المحادثة بين البائع والمشتري</h3>
+          <div class="chat-box">
+            <div class="chat-msgs" id="chatMsgs">${o.messages.map(m=>renderMsg(m,u)).join('')}</div>
+            <div class="chat-input">
+              <input type="text" id="chatText" placeholder="اكتب رسالتك…" onkeydown="if(event.key==='Enter')sendMsg('${o.id}')">
+              <button class="icon-btn" title="إرفاق ملف" onclick="document.getElementById('chatFile').click()">📎</button>
+              <input type="file" id="chatFile" hidden onchange="chatFilePick(this)">
+              <button class="icon-btn" style="background:var(--grad);color:#fff;border:none" onclick="sendMsg('${o.id}')" title="إرسال">➤</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="panel"><h3>👤 ${isClient?'العامل الحر':'الزبون'}</h3>
+          ${(()=>{const p=isClient?f:c;const avg=p&&p.rating.length?p.rating.reduce((a,b)=>a+b,0)/p.rating.length:0;return `<div style="display:flex;gap:12px;align-items:center"><span class="av" style="width:48px;height:48px;border-radius:14px;background:var(--grad);color:#fff;display:grid;place-items:center;font-weight:900">${esc(initials(p?p.name:'?'))}</span><div><b>${esc(p?p.name:'')}</b><br>${starsHtml(avg,p&&p.rating.length)}<br><small style="color:var(--muted)">${p&&p.role==='freelancer'?(CATS[p.field]?CATS[p.field].n+' · خبرة '+p.experience+' سنة':'عامل حر'):'زبون المنصة'}</small></div></div>`})()}
+        </div>
+        ${o.delivery?`<div class="panel"><h3>📦 التسليم</h3>
+          ${o.delivery.note?`<p style="font-size:.87rem;color:var(--muted);margin-bottom:10px">${esc(o.delivery.note)}</p>`:''}
+          <div class="media-prev">${o.delivery.files.map(f=>filePrevHtml(f)).join('')||'<small style="color:var(--muted)">بدون ملفات</small>'}</div>
+          <small style="color:var(--muted);display:block;margin-top:8px">${fmtDate(o.delivery.ts)}</small>
+        </div>`:''}
+        <div class="panel"><h3>⚡ إجراءات</h3><div style="display:grid;gap:8px">
+          ${o.fid===u.id&&o.status==='paid_wait'?`<button class="btn btn-pri" onclick="acceptOrder('${o.id}')">✅ قبول وبدء التنفيذ</button>`:''}
+          ${o.fid===u.id&&o.status==='active'?`<button class="btn btn-pri" onclick="openDeliver('${o.id}')">📦 تسليم العمل</button>`:''}
+          ${o.clientId===u.id&&o.status==='delivered'?`<button class="btn btn-pri" onclick="openRate('${o.id}')">⭐ استلام وتقييم</button>`:''}
+          ${o.rating?`<div class="note info" style="margin:0">⭐ التقييم: ${o.rating.stars}/5 — «${esc(o.rating.comment)}»</div>`:''}
+          ${o.status==='chat'?`<small style="color:var(--muted)">محادثة استكشافية — اطلب الخدمة رسميًا من صفحة السوق لبدء دورة الطلب الكاملة.</small>`:''}
+          ${!o.delivery&&o.status==='paid_wait'&&o.clientId===u.id?`<small style="color:var(--muted)">⏳ في انتظار قبول العامل الحر…</small>`:''}
+          ${!o.delivery&&o.status==='active'&&o.clientId===u.id?`<small style="color:var(--muted)">🔨 العامل يشتغل على طلبك…</small>`:''}
+        </div></div>
+        ${o.rating?`<div class="panel"><h3>⭐ تقييم الطلبية</h3><div style="text-align:center">${starsHtml(o.rating.stars)}<p style="font-size:.87rem;color:var(--muted);margin-top:6px">«${esc(o.rating.comment)}»</p></div></div>`:''}
+      </div>
+    </div>
+  </div></section>`;
+}
+function renderMsg(m,u){
+  const mine=m.from===u.id;
+  const sender=users.find(x=>x.id===m.from);
+  return `<div class="msg ${mine?'me':'them'}"><b>${esc(sender?sender.name:'')}</b>${esc(m.text)}
+    ${m.att?`<div>${filePrevHtml(m.att,true)}</div>`:''}
+    <small class="ts">${fmtDate(m.ts)}</small></div>`;
+}
+function filePrevHtml(f,small){
+  if(!f) return '';
+  const t=f.type||'';
+  const icon=t.startsWith('image/')?'🖼️':t.startsWith('video/')?'🎬':t.startsWith('audio/')?'🎵':t.startsWith('text/')?'📄':'📎';
+  if(small){
+    if(t.startsWith('image/')) return `<img src="${f.dataUrl}" alt="${esc(f.name)}" style="max-width:180px;border-radius:10px;margin-top:6px">`;
+    return `<a class="att" href="${f.dataUrl}" download="${esc(f.name)}">${icon} ${esc(f.name)}</a>`;
+  }
+  if(t.startsWith('image/')) return `<img src="${f.dataUrl}" alt="${esc(f.name)}" style="max-width:100%;max-height:300px;border-radius:12px;margin:6px 0"><br><a class="file-chip" href="${f.dataUrl}" download="${esc(f.name)}">⬇️ ${esc(f.name)}</a>`;
+  if(t.startsWith('video/')) return `<video controls src="${f.dataUrl}" style="max-width:100%;max-height:300px"></video><br><a class="file-chip" href="${f.dataUrl}" download="${esc(f.name)}">⬇️ ${esc(f.name)}</a>`;
+  if(t.startsWith('audio/')) return `<audio controls src="${f.dataUrl}"></audio><br><a class="file-chip" href="${f.dataUrl}" download="${esc(f.name)}">⬇️ ${esc(f.name)}</a>`;
+  return `<a class="file-chip" href="${f.dataUrl}" download="${esc(f.name)}">${icon} تحميل: ${esc(f.name)}</a>`;
+}
+let chatAtt=null;
+function chatFilePick(input){
+  chatAtt=null;
+  const f=input.files&&input.files[0]; if(!f) return;
+  if(f.size>3*1024*1024){ toast('❌ الملف أكبر من 3 ميغا','err'); input.value=''; return; }
+  const r=new FileReader(); r.onload=e=>{ chatAtt={name:f.name,type:f.type,dataUrl:e.target.result}; input.title='📎 '+f.name; toast('📎 تم تجهيز: '+f.name); };
+  r.readAsDataURL(f);
+}
+function sendMsg(oid){
+  const u=me(); const o=orders.find(x=>x.id===oid);
+  const inp=document.getElementById('chatText');
+  const txt=(inp.value||'').trim();
+  if(!txt&&!chatAtt) return;
+  o.messages.push({from:u.id,text:txt||'📎 مرفق',ts:Date.now(),att:chatAtt});
+  chatAtt=null; saveOrders(); render();
+  const box=document.getElementById('chatMsgs'); if(box) box.scrollTop=box.scrollHeight;
+}
+function acceptOrder(oid){
+  const o=orders.find(x=>x.id===oid);
+  o.status='active'; o.acceptTs=Date.now(); saveOrders();
+  toast('✅ قبلت الطلب — بالتوفيق في العمل!'); render();
+}
+function openDeliver(oid){
+  openModal(`<button class="x" onclick="closeModal()">✕</button><h3>📦 تسليم العمل</h3><p class="sub">أرفق ملفات التسليم: صور، فيديو، صوت، نص أو أي ملف</p>
+  <form onsubmit="doDeliver(event,'${oid}')">
+    <div class="fld"><label>ملاحظة للزبون</label><textarea id="dlNote" placeholder="اشرح ما سلمته وأي تعليمات…"></textarea></div>
+    <div class="fld"><label>ملفات التسليم * (حتى 3 ميغا للملف)</label>
+      <div class="file-drop" id="dlDrop" onclick="document.getElementById('dlFiles').click()">🖼️🎬🎵📄 اضغط لاختيار الملفات (يمكن اختيار عدة ملفات)<input type="file" id="dlFiles" hidden multiple accept="image/*,video/*,audio/*,text/*,.pdf,.doc,.docx,.zip,.psd,.ai,.mp4,.mp3" onchange="dlPick(this)"></div>
+    </div>
+    <button class="btn btn-pri" style="width:100%" type="submit">تسليم الطلبية</button>
+  </form>`);
+}
+let dlFiles=[];
+function dlPick(input){
+  dlFiles=[];
+  const d=document.getElementById('dlDrop');
+  for(const f of input.files){ if(f.size>3*1024*1024){ toast('❌ '+f.name+' أكبر من 3 ميغا — تم تجاهله','err'); continue; } dlFiles.push(f); }
+  if(dlFiles.length){ d.classList.add('has'); d.childNodes[0].textContent='✅ '+dlFiles.length+' ملف جاهز للتسليم'; }
+}
+function doDeliver(e,oid){
+  e.preventDefault();
+  if(!dlFiles.length){ toast('❌ أرفق ملفًا واحدًا على الأقل','err'); return; }
+  const o=orders.find(x=>x.id===oid);
+  const files=[];
+  let i=0;
+  const next=()=>{
+    if(i>=dlFiles.length){
+      o.delivery={note:document.getElementById('dlNote').value.trim(),files,ts:Date.now()};
+      o.status='delivered'; saveOrders(); dlFiles=[]; closeModal();
+      o.messages.push({from:o.fid,text:'📦 تم تسليم العمل — راجع الملفات وقيّم الخدمة!',ts:Date.now(),att:null});
+      saveOrders(); toast('🎉 تم التسليم — في انتظار تقييم الزبون'); render(); return;
+    }
+    const f=dlFiles[i++]; const r=new FileReader();
+    r.onload=ev=>{ files.push({name:f.name,type:f.type,dataUrl:ev.target.result}); next(); };
+    r.readAsDataURL(f);
+  };
+  next();
+}
+let rateStars=5;
+function openRate(oid){
+  rateStars=5;
+  openModal(`<button class="x" onclick="closeModal()">✕</button><h3>⭐ تقييم الخدمة</h3><p class="sub">رأيك يساعد بقية الزبائن ويحدد ترتيب العامل الحر</p>
+  <div class="star-in" id="starIn">${[1,2,3,4,5].map(i=>`<button type="button" onclick="setStars(${i})">★</button>`).join('')}</div>
+  <form onsubmit="doRate(event,'${oid}')">
+    <div class="fld"><label>تعليقك *</label><textarea id="rtComment" required placeholder="كيف كانت التجربة؟ الجودة، السرعة، التواصل…"></textarea></div>
+    <button class="btn btn-pri" style="width:100%" type="submit">✅ تأكيد الاستلام ونشر التقييم</button>
+  </form>`);
+  setStars(5);
+}
+function setStars(n){ rateStars=n; document.querySelectorAll('#starIn button').forEach((b,i)=>b.classList.toggle('on',i<n)); }
+function doRate(e,oid){
+  e.preventDefault();
+  const o=orders.find(x=>x.id===oid);
+  o.rating={stars:rateStars,comment:document.getElementById('rtComment').value.trim(),ts:Date.now()};
+  o.status='done';
+  const f=users.find(x=>x.id===o.fid);
+  if(f){ f.rating.push(rateStars);
+    const net=Math.round(o.price*(1-COMMISSION));
+    f.balance+=net;
+    saveUsers();
+    pays.push({id:uid(),type:'earning',userId:f.id,amount:net,orderId:o.id,status:'done',ts:Date.now()}); savePays();
+  }
+  saveOrders(); closeModal(); toast('🎉 تم إتمام الطلبية — وصل المبلغ (بعد عمولة 10%) لمحفظة العامل'); render();
+}
+
+/* ============ WALLET ============ */
+function viewWallet(){
+  const u=me();
+  if(!u) return `<section style="padding-top:40px"><div class="container"><div class="empty"><span class="ic">🔑</span><b>سجّل دخولك لعرض محفظتك</b></div></div></section>`;
+  if(u.role!=='freelancer'){
+    const myPays=pays.filter(p=>p.userId===u.id);
+    return `<section style="padding-top:30px"><div class="container"><h1 class="page-title">💳 المحفظة والمدفوعات</h1>
+    <p class="page-sub">المحفظة لسحب الأرباح خاصة بالعمال الأحرار — هنا سجل مدفوعاتك</p>
+    ${myPays.length?`<div class="tbl-wrap"><table class="adm"><tr><th>النوع</th><th>المبلغ</th><th>التاريخ</th><th>الحالة</th></tr>${myPays.map(p=>`<tr><td>${p.type==='pay'?'💳 دفع طلبية':'⬇️ سحب'}</td><td>${fmtDA(p.amount)}</td><td>${fmtDate(p.ts)}</td><td><span class="badge ${p.status==='done'?'b-done':'b-wait'}">${p.status==='done'?'مؤكد':'قيد المعالجة'}</span></td></tr>`).join('')}</table></div>`
+    :`<div class="empty"><span class="ic">🧾</span><b>لا توجد مدفوعات بعد</b><small>مدفوعات طلباتك ستظهر هنا</small></div>`}
+    </div></section>`;
+  }
+  const myPays=pays.filter(p=>p.userId===u.id).sort((a,b)=>b.ts-a.ts);
+  const earned=myPays.filter(p=>p.type==='earning').reduce((a,p)=>a+p.amount,0);
+  const withdrawn=myPays.filter(p=>p.type==='withdraw'&&p.status!=='rejected').reduce((a,p)=>a+p.amount,0);
+  return `<section style="padding-top:30px"><div class="container">
+    <h1 class="page-title">💳 محفظة العامل الحر</h1><p class="page-sub">أرباحك تصل هنا مباشرة بعد إتمام كل طلبية (بعد خصم عمولة المنصة 10%)</p>
+    <div class="wallet-hero">
+      <div class="amt"><small>الرصيد المتاح للسحب</small><b>${fmtDA(u.balance)}</b><small>إجمالي الأرباح: ${fmtDA(earned)} · مسحوب: ${fmtDA(withdrawn)}</small></div>
+      <div class="bank-card-vis"><div class="chip"></div><div class="no">•••• •••• •••• ${(u.lastCard||'0000')}</div><div class="nm">${esc(u.name)} · ${u.cardType==='dahabia'?'Edahabia 🟨':'CIB 💳'}</div></div>
+    </div>
+    <div style="margin:22px 0"><button class="btn btn-pri" ${u.balance<500?'disabled':''} onclick="openWithdraw()">⬇️ سحب الأموال إلى بطاقتي البنكية</button>
+    ${u.balance<500?'<small style="color:var(--muted);font-weight:700"> الحد الأدنى للسحب: 500 DA</small>':''}</div>
+    <h3 style="font-weight:900;margin-bottom:12px">🧾 سجل العمليات</h3>
+    ${myPays.length?`<div class="tbl-wrap"><table class="adm"><tr><th>النوع</th><th>المبلغ</th><th>البطاقة</th><th>التاريخ</th><th>الحالة</th></tr>
+    ${myPays.map(p=>`<tr><td>${p.type==='earning'?'💰 أرباح طلبية':'⬇️ سحب بنكي'}</td><td style="font-weight:800;color:${p.type==='earning'?'var(--pri)':'var(--ink)'}">${p.type==='earning'?'+':'−'}${fmtDA(p.amount)}</td><td dir="ltr">${p.type==='withdraw'?esc(p.card||'—'):'—'}</td><td>${fmtDate(p.ts)}</td><td><span class="badge ${p.status==='done'?'b-done':p.status==='rejected'?'b-rej':'b-wait'}">${p.status==='done'?'مؤكد':p.status==='rejected'?'مرفوض':'قيد المعالجة'}</span></td></tr>`).join('')}</table></div>`
+    :`<div class="empty"><span class="ic">🧾</span><b>لا توجد عمليات بعد</b><small>أنهِ أول طلبية لتصلك الأرباح</small></div>`}
+  </div></section>`;
+}
+function openWithdraw(){
+  const u=me();
+  openModal(`<button class="x" onclick="closeModal()">✕</button><h3>⬇️ سحب الأموال</h3><p class="sub">رصيدك: <b style="color:var(--pri)">${fmtDA(u.balance)}</b> — السحب إلى بطاقة بنكية جزائرية</p>
+  <div class="note">⚠️ وضع تجريبي — لا توجد تحويلات حقيقية. التحويل الفعلي يتم عبر SATIM/بريد الجزائر بعد الربط.</div>
+  <form onsubmit="doWithdraw(event)">
+    <div class="fld"><label>نوع البطاقة *</label><div class="card-types" style="margin-bottom:0">
+      <button type="button" class="card-type sel" data-ct="cib" onclick="pickCT(this)"><span class="ic">💳</span>CIB</button>
+      <button type="button" class="card-type" data-ct="dahabia" onclick="pickCT(this)"><span class="ic">🟨</span>الذهبية</button></div></div>
+    <div class="fld"><label>رقم البطاقة / RIB (16 رقمًا) *</label><input id="wdCard" required inputmode="numeric" pattern="[0-9 ]{16,19}" placeholder="6280 1234 5678 9012" dir="ltr" maxlength="19"></div>
+    <div class="fld"><label>المبلغ المسحوب (DA) *</label><input type="number" id="wdAmt" required min="500" max="${u.balance}" value="${u.balance}"></div>
+    <button class="btn btn-pri" style="width:100%" type="submit">تأكيد طلب السحب</button>
+  </form>`);
+}
+function pickCT(b){ document.querySelectorAll('.card-type[data-ct]').forEach(x=>x.classList.toggle('sel',x===b)); }
+function doWithdraw(e){
+  e.preventDefault();
+  const u=me();
+  const amt=+document.getElementById('wdAmt').value;
+  const card=document.getElementById('wdCard').value.replace(/\s/g,'');
+  if(card.length!==16){ toast('❌ رقم البطاقة يجب أن يكون 16 رقمًا','err'); return; }
+  if(amt>u.balance||amt<500){ toast('❌ مبلغ غير صالح','err'); return; }
+  const ct=document.querySelector('.card-type.sel'); 
+  u.balance-=amt; u.lastCard=card.slice(-4); u.cardType=ct?ct.dataset.ct:'cib';
+  saveUsers();
+  pays.push({id:uid(),type:'withdraw',userId:u.id,amount:amt,card:card,status:'pending',ts:Date.now()}); savePays();
+  closeModal(); toast('⏳ تم إرسال طلب السحب — قيد المعالجة (تجريبي)'); render();
+}
+
+/* ============ HELP ============ */
+const FAQS=[
+ ['كيف أسجل كعامل حر؟','اضغط «حساب جديد» واختر «عامل حر»، املأ مجال خبرتك الرقمية وسنوات الخبرة ومعرض أعمالك. يشترط أن تكون خبرتك في مجال رقمي (تصميم، برمجة، تسويق، مونتاج، كتابة، ترجمة، صوت…). يمر طلبك على الإدارة التي تقبله أو ترفضه مع ذكر السبب، وتصلك الحالة عند الدخول.'],
+ ['كيف أطلب خدمة وأدفع؟','اختر الخدمة من السوق ← «اطلب الآن» ← اكتب تفاصيل طلبك وأرفق ملفات إن أردت ← ادفع ببطاقتك البنكية الجزائرية CIB أو الذهبية. المبلغ يبقى محفوظًا ولا يصل للعامل إلا بعد تأكيدك للاستلام والتقييم.'],
+ ['كيف يتم تسليم العمل؟','العامل الحر يسلّم الطلبية من داخل صفحة الطلبية: ملاحظة + ملفات بأي صيغة (صورة 🖼️، فيديو 🎬، صوت 🎵، نص 📄، PDF، ZIP، PSD…). يمكنك معاينة الصور والفيديو والصوت مباشرة داخل المنصة وتحميل بقية الملفات.'],
+ ['كيف أتواصل مع البائع أو المشتري؟','كل طلبية تحتوي محادثة مباشرة داخلية مع دعم إرفاق الملفات. كما يمكنك فتح محادثة استكشافية مع أي عامل حر من زر «💬 تواصل» قبل الطلب.'],
+ ['كيف يعمل التقييم؟','بعد استلام العمل تضغط «استلام وتقييم»، تختار من 1 إلى 5 نجوم وتكتب تعليقًا. التقييم يظهر في بطاقة العامل الحر ويحدد ترتيبه في السوق.'],
+ ['كيف أستلم أموالي؟','بعد إتمام كل طلبية يصل المبلغ (ناقص عمولة المنصة 10%) إلى محفظتك. اطلب السحب من صفحة المحفظة بإدخال رقم بطاقتك CIB أو الذهبية — الحد الأدنى 500 DA.'],
+ ['المنصة متاحة لأي خدمات؟','للخدمات الرقمية فقط: تصميم، برمجة، مواقع، تسويق رقمي، مونتاج، كتابة محتوى، ترجمة، تعليق صوتي وما شابه. أي خدمة غير رقمية تُرفض.'],
+ ['هل الدفع آمن؟','الدفع يتم عبر البطاقات البنكية الجزائرية (CIB عبر SATIM، والذهبية عبر بريد الجزائر). في هذه النسخة التجريبية الدفع محاكى فقط ولن يخصم أي مبلغ حقيقي.']
+];
+function viewHelp(){
+  return `<section style="padding-top:30px"><div class="container" style="max-width:820px">
+    <h1 class="page-title">❓ مركز المساعدة</h1>
+    <p class="page-sub">كل ما تحتاج معرفته عن التسجيل، الطلب، الدفع، التسليم والتقييم</p>
+    ${FAQS.map((f,i)=>`<div class="acc ${i===0?'open':''}"><button onclick="this.parentElement.classList.toggle('open')"><span>${f[0]}</span><span>⌄</span></button><div class="body">${f[1]}</div></div>`).join('')}
+    <div class="panel" style="margin-top:22px;text-align:center"><h3 style="justify-content:center">💬 ما لقيتش جواب؟</h3>
+      <p style="color:var(--muted);font-size:.9rem;margin-bottom:14px">فريق الدعم متاح 7/7 لمساعدتك</p>
+      <a class="btn btn-pri" href="https://wa.me/213797464179" target="_blank" rel="noopener">واتساب: 0797 46 41 79</a>
+      <a class="btn btn-out" href="mailto:support@akhdem-dz.com" style="margin-inline-start:8px">✉️ راسلنا بالإيميل</a>
+    </div>
+  </div></section>`;
+}
+
+/* ============ ADMIN ============ */
+function openAdminLogin(){
+  if(isAdmin){ go('admin'); return; }
+  openModal(`<button class="x" onclick="closeModal()">✕</button><h3>🔐 لوحة الإدارة</h3><p class="sub">دخول مخصص لإدارة المنصة</p>
+  <div class="note info">وضع تجريبي — كلمة المرور: <b>admin123</b></div>
+  <form onsubmit="doAdminLogin(event)">
+    <div class="fld"><label>كلمة مرور الإدارة</label><input type="password" id="adPass" required dir="ltr" placeholder="••••••••"></div>
+    <button class="btn btn-dark" style="width:100%" type="submit">دخول</button>
+  </form>`);
+}
+function doAdminLogin(e){
+  e.preventDefault();
+  if(document.getElementById('adPass').value!==ADMIN_PASSWORD){ toast('❌ كلمة المرور خاطئة','err'); return; }
+  isAdmin=true; DB.set('admin',true); closeModal(); toast('🔓 مرحبًا بك في لوحة الإدارة'); go('admin');
+}
+function viewAdmin(){
+  const pending=users.filter(u=>u.role==='freelancer'&&u.status==='pending');
+  const approved=users.filter(u=>u.role==='freelancer'&&u.status==='approved');
+  const clients=users.filter(u=>u.role==='client');
+  const pendWd=pays.filter(p=>p.type==='withdraw'&&p.status==='pending');
+  return `<section style="padding-top:30px"><div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+      <div><h1 class="page-title">🛡️ لوحة الإدارة</h1><p class="page-sub" style="margin-bottom:0">قبول ورفض العمال الأحرار · متابعة الطلبات والسحوبات</p></div>
+      <button class="btn btn-out btn-sm" onclick="isAdmin=false;DB.set('admin',false);toast('👋 خرجت من لوحة الإدارة');go('home')">خروج من الإدارة</button>
+    </div>
+    <div class="admin-grid" style="margin-top:18px">
+      <div class="stat-card"><b>${pending.length}</b><small>⏳ طلبات قيد المراجعة</small></div>
+      <div class="stat-card"><b>${approved.length}</b><small>✅ عمال أحرار معتمدون</small></div>
+      <div class="stat-card"><b>${clients.length}</b><small>🛒 زبائن</small></div>
+      <div class="stat-card"><b>${orders.filter(o=>o.status!=='chat').length}</b><small>📦 طلبات</small></div>
+    </div>
+    <h3 style="font-weight:900;margin:18px 0 10px">⏳ طلبات تسجيل العمال الأحرار</h3>
+    ${pending.length?`<div class="tbl-wrap"><table class="adm"><tr><th>الاسم</th><th>المجال</th><th>الخبرة</th><th>معرض الأعمال</th><th>التواصل</th><th>إجراء</th></tr>
+      ${pending.map(u=>`<tr><td><b>${esc(u.name)}</b><br><small style="color:var(--muted)">${fmtDate(u.createdAt)}</small></td>
+      <td>${CATS[u.field]?CATS[u.field].ic+' '+CATS[u.field].n:'—'}</td><td>${u.experience} سنة</td>
+      <td style="max-width:240px"><small>${esc(u.portfolio)}</small></td>
+      <td dir="ltr" style="font-size:.78rem">${esc(u.email)}<br>${esc(u.phone)}</td>
+      <td style="white-space:nowrap"><button class="btn btn-pri btn-sm" onclick="reviewUser('${u.id}',true)">✅ قبول</button> <button class="btn btn-red btn-sm" onclick="reviewUser('${u.id}',false)">❌ رفض</button></td></tr>`).join('')}</table></div>`
+    :`<div class="empty"><span class="ic">🎉</span><b>لا توجد طلبات معلّقة</b><small>كل طلبات التسجيل تمت معالجتها</small></div>`}
+    <h3 style="font-weight:900;margin:24px 0 10px">⬇️ طلبات السحب المعلّقة (${pendWd.length})</h3>
+    ${pendWd.length?`<div class="tbl-wrap"><table class="adm"><tr><th>العامل</th><th>المبلغ</th><th>البطاقة</th><th>التاريخ</th><th>إجراء</th></tr>
+      ${pendWd.map(p=>{const u=users.find(x=>x.id===p.userId);return `<tr><td>${esc(u?u.name:'')}</td><td><b>${fmtDA(p.amount)}</b></td><td dir="ltr">${esc(p.card||'')}</td><td>${fmtDate(p.ts)}</td>
+      <td><button class="btn btn-pri btn-sm" onclick="settleWithdraw('${p.id}','done')">✅ تحويل تم</button> <button class="btn btn-red btn-sm" onclick="settleWithdraw('${p.id}','rejected')">↩️ إلغاء وإرجاع</button></td></tr>`}).join('')}</table></div>`
+    :`<div class="empty" style="padding:26px"><small>لا توجد طلبات سحب معلّقة</small></div>`}
+    <h3 style="font-weight:900;margin:24px 0 10px">👥 كل المستخدمين (${users.length})</h3>
+    <div class="tbl-wrap"><table class="adm"><tr><th>الاسم</th><th>الدور</th><th>الحالة</th><th>التقييم</th><th>الرصيد</th></tr>
+      ${users.map(u=>`<tr><td><b>${esc(u.name)}</b><br><small style="color:var(--muted)" dir="ltr">${esc(u.email)}</small></td>
+      <td>${u.role==='freelancer'?'💼 عامل حر':'🛒 زبون'}</td>
+      <td><span class="badge ${u.status==='approved'?'b-done':u.status==='pending'?'b-pend':'b-rej'}">${u.status==='approved'?'معتمد':u.status==='pending'?'قيد المراجعة':'مرفوض'}</span></td>
+      <td>${u.rating.length?((u.rating.reduce((a,b)=>a+b,0)/u.rating.length).toFixed(1)+' ★ ('+u.rating.length+')'):'—'}</td>
+      <td>${u.role==='freelancer'?fmtDA(u.balance):'—'}</td></tr>`).join('')}</table></div>
+  </div></section>`;
+}
+function reviewUser(id,ok){
+  const u=users.find(x=>x.id===id);
+  if(!ok){
+    openModal(`<button class="x" onclick="closeModal()">✕</button><h3>❌ رفض الطلب</h3><p class="sub">رفض: ${esc(u.name)} — اذكر السبب ليظهر له</p>
+    <form onsubmit="doReject(event,'${id}')"><div class="fld"><label>سبب الرفض *</label><textarea id="rjReason" required placeholder="مثال: الخبرة غير كافية في مجال رقمي، أو معرض الأعمال غير واضح"></textarea></div>
+    <button class="btn btn-red" style="width:100%" type="submit">تأكيد الرفض</button></form>`);
+    return;
+  }
+  u.status='approved'; saveUsers(); toast('✅ تم قبول '+u.name+' كعامل حر'); render();
+}
+function doReject(e,id){
+  e.preventDefault();
+  const u=users.find(x=>x.id===id);
+  u.status='rejected'; u.rejectReason=document.getElementById('rjReason').value.trim();
+  saveUsers(); closeModal(); toast('تم رفض الطلب مع ذكر السبب'); render();
+}
+function settleWithdraw(pid,st){
+  const p=pays.find(x=>x.id===pid);
+  p.status=st;
+  if(st==='rejected'){ const u=users.find(x=>x.id===p.userId); if(u){ u.balance+=p.amount; saveUsers(); } }
+  savePays(); toast(st==='done'?'✅ تم تأكيد التحويل':'↩️ تم إرجاع المبلغ للمحفظة'); render();
+}
+
+/* ============ BOOT ============ */
+render();
+</script>
+</body>
+</html>
